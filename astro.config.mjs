@@ -18,13 +18,8 @@ export default defineConfig({
   vite: {
     build: {
       cssMinify: 'esbuild', // Use esbuild (default) instead of lightningcss
-      minify: 'terser',
-      terserOptions: {
-        compress: {
-          drop_console: true,
-          drop_debugger: true
-        }
-      }
+      minify: 'esbuild', // Use esbuild instead of terser (no extra dependency needed)
+      // Note: esbuild doesn't support drop_console in the same way, but it's faster
     }
   }
 });
