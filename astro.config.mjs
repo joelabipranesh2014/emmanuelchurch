@@ -1,8 +1,12 @@
 import { defineConfig } from 'astro/config';
+import vercel from '@astrojs/vercel/serverless';
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'static',
+  // Use 'server' mode for Vercel deployment
+  // This enables API routes while still pre-rendering static pages
+  output: 'server',
+  adapter: vercel(),
   build: {
     assets: 'assets'
   }
