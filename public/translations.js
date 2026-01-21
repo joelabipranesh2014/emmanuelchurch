@@ -72,7 +72,7 @@ const translations = {
             contact: "Contact",
             email: "Email",
             phone: "Phone",
-            copyright: "EmmanEzk Church. All rights reserved."
+            copyright: "Emmanuel Church Tiruchengode. All rights reserved."
         },
         // About Page
         about: {

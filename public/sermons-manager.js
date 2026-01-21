@@ -186,6 +186,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 renderSermonsList();
             } else if (targetTab === 'manage-songs') {
                 renderSongsList();
+            } else if (targetTab === 'manage-services') {
+                // Trigger services loading (handled by events-manager.js)
+                setTimeout(() => {
+                    if (window.loadServices) window.loadServices();
+                }, 100);
+            } else if (targetTab === 'manage-events') {
+                // Trigger events loading (handled by events-manager.js)
+                setTimeout(() => {
+                    if (window.loadEvents) window.loadEvents();
+                }, 100);
             }
         });
     });

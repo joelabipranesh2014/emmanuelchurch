@@ -3,45 +3,45 @@
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="header" id="header">
+<header class="header" id="header" role="banner">
     <div class="container">
-        <div class="logo">
-            <span class="logo-icon">✟</span>
-            <span class="logo-text">Emmanuel Prayer Fellowship Church</span>
-        </div>
-        <nav class="nav">
+        <a href="/" class="logo" aria-label="Emmanuel Church Tiruchengode Home">
+            <span class="logo-icon" aria-hidden="true">✟</span>
+            <span class="logo-text">Emmanuel Church Tiruchengode</span>
+        </a>
+        <nav class="nav" role="navigation" aria-label="Main navigation">
             <ul class="nav-list">
                 <li>
-                    <a href="/" class={`nav-link ${currentPath === '/' ? 'active' : ''}`} data-translate="nav.home">
+                    <a href="/" class={`nav-link ${currentPath === '/' ? 'active' : ''}`} data-translate="nav.home" aria-current={currentPath === '/' ? 'page' : undefined}>
                         Home
                     </a>
                 </li>
                 <li>
-                    <a href="/about" class={`nav-link ${currentPath === '/about' ? 'active' : ''}`} data-translate="nav.about">
+                    <a href="/about" class={`nav-link ${currentPath === '/about' ? 'active' : ''}`} data-translate="nav.about" aria-current={currentPath === '/about' ? 'page' : undefined}>
                         About
                     </a>
                 </li>
                 <li>
-                    <a href="/sermons" class={`nav-link ${currentPath === '/sermons' ? 'active' : ''}`} data-translate="nav.sermons">
+                    <a href="/sermons" class={`nav-link ${currentPath === '/sermons' ? 'active' : ''}`} data-translate="nav.sermons" aria-current={currentPath === '/sermons' ? 'page' : undefined}>
                         Sermons
                     </a>
                 </li>
                 <li>
-                    <a href="/events" class={`nav-link ${currentPath === '/events' ? 'active' : ''}`} data-translate="nav.events">
+                    <a href="/events" class={`nav-link ${currentPath === '/events' ? 'active' : ''}`} data-translate="nav.events" aria-current={currentPath === '/events' ? 'page' : undefined}>
                         Events
                     </a>
                 </li>
                 <li>
-                    <a href="/prayer-request" class={`nav-link ${currentPath === '/prayer-request' ? 'active' : ''}`} data-translate="nav.prayerRequest">
+                    <a href="/prayer-request" class={`nav-link ${currentPath === '/prayer-request' ? 'active' : ''}`} data-translate="nav.prayerRequest" aria-current={currentPath === '/prayer-request' ? 'page' : undefined}>
                         Prayer Request
                     </a>
                 </li>
             </ul>
         </nav>
-        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
-            <span></span>
-            <span></span>
-            <span></span>
+        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="nav-list">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
         </button>
     </div>
 </header>

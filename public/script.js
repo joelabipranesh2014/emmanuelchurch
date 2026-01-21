@@ -22,6 +22,15 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
+// Make observer available globally for dynamically inserted elements
+window.intersectionObserver = observer;
+
+// Function to observe new elements
+window.observeAnimateElements = function(container) {
+    const animateElements = container.querySelectorAll('.animate-on-scroll');
+    animateElements.forEach(el => observer.observe(el));
+};
+
 // Observe all elements with animate-on-scroll class
 document.addEventListener('DOMContentLoaded', () => {
     const animateElements = document.querySelectorAll('.animate-on-scroll');
@@ -362,5 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ============================================
 // CONSOLE MESSAGE
 // ============================================
-console.log('%c✟ EmmanEzk Church Website ✟', 'font-size: 20px; color: #6B46C1; font-weight: bold;');
-console.log('%cBuilt with love and prayer', 'font-size: 14px; color: #6B7280;');
+// Console logs removed for production performance
+// Uncomment for development:
+// console.log('%c✟ EmmanEzk Church Website ✟', 'font-size: 20px; color: #6B46C1; font-weight: bold;');
+// console.log('%cBuilt with love and prayer', 'font-size: 14px; color: #6B7280;');

@@ -4,11 +4,16 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<BaseLayout title="EmmanEzk Church - See What God Can Do Through You">
+<BaseLayout 
+    title="Emmanuel Church Tiruchengode - See What God Can Do Through You"
+    description="Emmanuel Church Tiruchengode - Transforming lives through the power of the Gospel. Join us for worship, community, and growth in Tiruchengode, Tamil Nadu."
+    type="website"
+>
     <Header />
     
+    <main id="main-content">
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" aria-label="Hero section">
         <div class="hero-background">
             <div class="hero-overlay"></div>
             <div class="floating-shapes">
@@ -19,11 +24,11 @@ import Footer from '../components/Footer.astro';
         </div>
         <div class="hero-content">
             <h1 class="hero-title animate-fade-in">
-                <span class="title-line" data-translate="home.heroTitle1">See What God</span>
-                <span class="title-line" data-translate="home.heroTitle2">Can Do Through You</span>
+                <span class="title-line" data-translate="home.heroTitle1">Emmanuel Church Tiruchengode</span>
+                <span class="title-line" data-translate="home.heroTitle2">See What God Can Do Through You</span>
             </h1>
             <p class="hero-subtitle animate-fade-in-delay" data-translate="home.heroSubtitle">
-                We exist so that people far from God will be raised to life in Christ
+                We exist so that people far from God will be raised to life in Christ. Join us in Tiruchengode, Tamil Nadu for worship, community, and transformation.
             </p>
             <div class="hero-buttons animate-fade-in-delay-2">
                 <a href="/events" class="btn btn-primary" data-translate="home.planVisit">Plan Your Visit</a>
@@ -43,20 +48,20 @@ import Footer from '../components/Footer.astro';
                 <p class="section-subtitle" data-translate="home.foundationSubtitle">Built on faith, hope, and love</p>
             </div>
             <div class="foundation-grid">
-                <div class="foundation-card animate-on-scroll">
+                <article class="foundation-card animate-on-scroll">
                     <div class="card-icon">👁️</div>
                     <h3 data-translate="home.visionTitle">Our Vision</h3>
                     <p data-translate="home.visionText">
-                        To see hearts transformed, lives restored, and communities built through the power of the Gospel. We envision a world where every person experiences the life-changing love of Jesus Christ.
+                        To see hearts transformed, lives restored, and communities built through the power of the Gospel. We envision a world where every person experiences the life-changing love of Jesus Christ. At Emmanuel Church Tiruchengode, we're committed to transforming lives in Tiruchengode, Tamil Nadu.
                     </p>
-                </div>
-                <div class="foundation-card animate-on-scroll">
-                    <div class="card-icon">🎯</div>
+                </article>
+                <article class="foundation-card animate-on-scroll">
+                    <div class="card-icon" aria-hidden="true">🎯</div>
                     <h3 data-translate="home.missionTitle">Our Mission</h3>
                     <p data-translate="home.missionText">
-                        We exist for those far from God—to share hope, love, and purpose in Christ. Our mission is to reach the lost, disciple the found, and send them out to transform the world.
+                        We exist for those far from God—to share hope, love, and purpose in Christ. Our mission is to reach the lost, disciple the found, and send them out to transform the world. Emmanuel Church Tiruchengode serves the community of Tiruchengode, Tamil Nadu with the Gospel message.
                     </p>
-                </div>
+                </article>
             </div>
         </div>
     </section>
@@ -69,48 +74,42 @@ import Footer from '../components/Footer.astro';
                 <p class="section-subtitle" data-translate="home.valuesSubtitle">Our code of values that guide everything we do</p>
             </div>
             <div class="values-grid">
-                <div class="value-card animate-on-scroll">
-                
+                <article class="value-card animate-on-scroll">
                     <h3 data-translate="home.value1Title">Jesus at the Center</h3>
                     <p data-translate="home.value1Text">
                         Everything we do flows from our relationship with Jesus Christ. He is our foundation, our guide, and our purpose.
                     </p>
-                </div>
-                <div class="value-card animate-on-scroll">
-                
+                </article>
+                <article class="value-card animate-on-scroll">
                     <h3 data-translate="home.value2Title">Think Big, Start Small</h3>
                     <p data-translate="home.value2Text">
                         We dream God-sized dreams while taking faithful steps forward. Every great movement begins with a single act of obedience.
                     </p>
-                </div>
-                <div class="value-card animate-on-scroll">
-                
+                </article>
+                <article class="value-card animate-on-scroll">
                     <h3 data-translate="home.value3Title">Contributors, Not Consumers</h3>
                     <p data-translate="home.value3Text">
                         We are called to give, serve, and invest in others. The church is not a place to consume but a place to contribute.
                     </p>
-                </div>
-                <div class="value-card animate-on-scroll">
-                    
+                </article>
+                <article class="value-card animate-on-scroll">
                     <h3 data-translate="home.value4Title">Honor Always</h3>
                     <p data-translate="home.value4Text">
                         We honor God, honor people, and honor the process. Every person matters and deserves to be treated with dignity and respect.
                     </p>
-                </div>
-                <div class="value-card animate-on-scroll">
-                    
+                </article>
+                <article class="value-card animate-on-scroll">
                     <h3 data-translate="home.value5Title">Focused Excellence</h3>
                     <p data-translate="home.value5Text">
                         We do what we do with excellence because we're doing it for God. We give our best in everything, big or small.
                     </p>
-                </div>
-                <div class="value-card animate-on-scroll">
-                
+                </article>
+                <article class="value-card animate-on-scroll">
                     <h3 data-translate="home.value6Title">Multiply, Don't Maintain</h3>
                     <p data-translate="home.value6Text">
                         We're committed to growth and multiplication. We invest in people, develop leaders, and plant new ministries.
                     </p>
-                </div>
+                </article>
             </div>
         </div>
     </section>
@@ -123,29 +122,29 @@ import Footer from '../components/Footer.astro';
                 <p class="section-subtitle" data-translate="home.beliefsSubtitle">Rooted in Scripture, centered on Christ</p>
             </div>
             <div class="beliefs-grid">
-                <div class="belief-card animate-on-scroll">
-                    <div class="belief-icon">📖</div>
+                <article class="belief-card animate-on-scroll">
+                    <div class="belief-icon" aria-hidden="true">📖</div>
                     <h3 data-translate="home.belief1Title">The Bible</h3>
                     <p data-translate="home.belief1Text">
                         God's written Word, inspired, infallible, and relevant for every season of life.
                     </p>
-                </div>
-                <div class="belief-card animate-on-scroll">
-                    <div class="belief-icon">☦️</div>
+                </article>
+                <article class="belief-card animate-on-scroll">
+                    <div class="belief-icon" aria-hidden="true">☦️</div>
                     <h3 data-translate="home.belief2Title">The Trinity</h3>
                     <p data-translate="home.belief2Text">
                         One God in three persons—Father, Son, and Holy Spirit—equal in power, united in purpose.
                     </p>
-                </div>
-                <div class="belief-card animate-on-scroll">
-                    <div class="belief-icon">✝️</div>
+                </article>
+                <article class="belief-card animate-on-scroll">
+                    <div class="belief-icon" aria-hidden="true">✝️</div>
                     <h3 data-translate="home.belief3Title">Jesus Christ</h3>
                     <p data-translate="home.belief3Text">
                         Fully God, fully man; lived perfectly, died for sin, rose again; our only hope.
                     </p>
-                </div>
-                <div class="belief-card animate-on-scroll">
-                    <div class="belief-icon">🕊️</div>
+                </article>
+                <article class="belief-card animate-on-scroll">
+                    <div class="belief-icon" aria-hidden="true">🕊️</div>
                     <h3 data-translate="home.belief4Title">Holy Spirit</h3>
                     <p data-translate="home.belief4Text">
                         Present with us, guiding, convicting, comforting, empowering for Christlike living.
@@ -162,8 +161,8 @@ import Footer from '../components/Footer.astro';
     <section class="cta-section">
         <div class="container">
             <div class="cta-content animate-on-scroll">
-                <h2 data-translate="home.joinUs">Join Us This Sunday</h2>
-                <p data-translate="home.joinUsText">Experience worship, community, and God's Word in a fresh way</p>
+                <h2 data-translate="home.joinUs">Join Emmanuel Church Tiruchengode This Sunday</h2>
+                <p data-translate="home.joinUsText">Experience worship, community, and God's Word at Emmanuel Church Tiruchengode, Tamil Nadu</p>
                 <div class="cta-buttons">
                     <a href="/events" class="btn btn-primary btn-large" data-translate="home.findService">Find a Service</a>
                     <a href="/sermons" class="btn btn-secondary btn-large" data-translate="home.watchOnline">Watch Online</a>
@@ -172,6 +171,7 @@ import Footer from '../components/Footer.astro';
         </div>
     </section>
 
+    </main>
     <Footer />
 </BaseLayout>
 

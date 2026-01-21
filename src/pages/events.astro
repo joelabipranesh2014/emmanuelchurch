@@ -4,11 +4,16 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<BaseLayout title="Events & Services | EmmanEzk Church">
+<BaseLayout 
+    title="Events & Services | Emmanuel Church Tiruchengode"
+    description="Join Emmanuel Church Tiruchengode for worship, community, and growth. View weekly services and upcoming events in Tiruchengode, Tamil Nadu."
+    type="website"
+>
     <Header />
     
+    <main id="main-content">
     <!-- Page Hero -->
-    <section class="page-hero">
+    <section class="page-hero" aria-label="Page header">
         <div class="page-hero-content">
             <h1 class="animate-fade-in" data-translate="events.pageTitle">Events & Services</h1>
             <p class="animate-fade-in-delay" data-translate="events.pageSubtitle">
@@ -25,42 +30,9 @@ import Footer from '../components/Footer.astro';
                 <p class="section-subtitle">Join us every Sunday for worship and teaching</p>
             </div>
             
-            <div class="services-grid">
-                <div class="service-card animate-on-scroll">
-                    <div class="service-time">9:00 AM</div>
-                    <h3>First Service</h3>
-                    <p>Start your week with worship and God's Word. A powerful time of praise, prayer, and teaching.</p>
-                    <div class="service-details">
-                        <p><strong>Location:</strong> Main Sanctuary</p>
-                        <p><strong>Duration:</strong> 75 minutes</p>
-                        <p><strong>Childcare:</strong> Available</p>
-                    </div>
-                    <a href="#" class="btn btn-primary">Plan Your Visit</a>
-                </div>
-
-                <div class="service-card animate-on-scroll featured">
-                    <div class="featured-badge">Most Popular</div>
-                    <div class="service-time">11:00 AM</div>
-                    <h3>Second Service</h3>
-                    <p>Our most attended service featuring full worship band, inspiring message, and vibrant community.</p>
-                    <div class="service-details">
-                        <p><strong>Location:</strong> Main Sanctuary</p>
-                        <p><strong>Duration:</strong> 75 minutes</p>
-                        <p><strong>Childcare:</strong> Available</p>
-                    </div>
-                    <a href="#" class="btn btn-primary">Plan Your Visit</a>
-                </div>
-
-                <div class="service-card animate-on-scroll">
-                    <div class="service-time">6:00 PM</div>
-                    <h3>Evening Service</h3>
-                    <p>A more intimate gathering with extended worship and deeper teaching. Perfect for those seeking a quieter, reflective experience.</p>
-                    <div class="service-details">
-                        <p><strong>Location:</strong> Main Sanctuary</p>
-                        <p><strong>Duration:</strong> 90 minutes</p>
-                        <p><strong>Childcare:</strong> Available</p>
-                    </div>
-                    <a href="#" class="btn btn-primary">Plan Your Visit</a>
+            <div class="services-grid" id="services-container">
+                <div class="empty-state">
+                    <p>Loading services...</p>
                 </div>
             </div>
         </div>
@@ -74,70 +46,9 @@ import Footer from '../components/Footer.astro';
                 <p class="section-subtitle">Mark your calendar for these special gatherings</p>
             </div>
             
-            <div class="events-timeline">
-                <div class="event-item animate-on-scroll">
-                    <div class="event-date">
-                        <div class="date-day">15</div>
-                        <div class="date-month">DEC</div>
-                    </div>
-                    <div class="event-content">
-                        <h3>Christmas Celebration</h3>
-                        <p class="event-time">7:00 PM - Main Sanctuary</p>
-                        <p>Join us for a special Christmas service featuring carols, candlelight, and a message of hope. Bring your family and friends!</p>
-                        <a href="#" class="btn btn-outline">Learn More</a>
-                    </div>
-                </div>
-
-                <div class="event-item animate-on-scroll">
-                    <div class="event-date">
-                        <div class="date-day">22</div>
-                        <div class="date-month">DEC</div>
-                    </div>
-                    <div class="event-content">
-                        <h3>New Year's Eve Service</h3>
-                        <p class="event-time">10:00 PM - Main Sanctuary</p>
-                        <p>Ring in the new year with worship, prayer, and communion. We'll reflect on God's faithfulness and look forward to what He has in store.</p>
-                        <a href="#" class="btn btn-outline">Learn More</a>
-                    </div>
-                </div>
-
-                <div class="event-item animate-on-scroll">
-                    <div class="event-date">
-                        <div class="date-day">05</div>
-                        <div class="date-month">JAN</div>
-                    </div>
-                    <div class="event-content">
-                        <h3>Vision Sunday</h3>
-                        <p class="event-time">All Services</p>
-                        <p>Hear about what God is doing in our church and where we're heading in the new year. This is a can't-miss Sunday!</p>
-                        <a href="#" class="btn btn-outline">Learn More</a>
-                    </div>
-                </div>
-
-                <div class="event-item animate-on-scroll">
-                    <div class="event-date">
-                        <div class="date-day">12</div>
-                        <div class="date-month">JAN</div>
-                    </div>
-                    <div class="event-content">
-                        <h3>Baptism Sunday</h3>
-                        <p class="event-time">All Services</p>
-                        <p>Celebrate with those taking the next step in their faith journey through baptism. If you're ready to be baptized, sign up today!</p>
-                        <a href="#" class="btn btn-outline">Sign Up</a>
-                    </div>
-                </div>
-
-                <div class="event-item animate-on-scroll">
-                    <div class="event-date">
-                        <div class="date-day">20</div>
-                        <div class="date-month">JAN</div>
-                    </div>
-                    <div class="event-content">
-                        <h3>Community Groups Launch</h3>
-                        <p class="event-time">6:30 PM - Various Locations</p>
-                        <p>New semester of community groups begins! Find your group and start building deeper relationships with other believers.</p>
-                        <a href="#" class="btn btn-outline">Find a Group</a>
-                    </div>
+            <div class="events-timeline" id="events-container">
+                <div class="empty-state">
+                    <p>Loading events...</p>
                 </div>
             </div>
         </div>
@@ -156,60 +67,291 @@ import Footer from '../components/Footer.astro';
                     <div class="ministry-icon">👨‍👩‍👧‍👦</div>
                     <h3>Children's Ministry</h3>
                     <p>Nurturing the next generation in faith, fun, and friendship. Ages 0-12.</p>
-                    <a href="#" class="btn btn-outline">Learn More</a>
+                  
                 </div>
 
                 <div class="ministry-card animate-on-scroll">
                     <div class="ministry-icon">🎸</div>
                     <h3>Worship Team</h3>
                     <p>Use your musical gifts to lead others in worship. Auditions required.</p>
-                    <a href="#" class="btn btn-outline">Learn More</a>
+                   
                 </div>
 
                 <div class="ministry-card animate-on-scroll">
                     <div class="ministry-icon">🤝</div>
                     <h3>Community Groups</h3>
                     <p>Small groups meeting throughout the week for Bible study, prayer, and fellowship.</p>
-                    <a href="#" class="btn btn-outline">Find a Group</a>
+                    
                 </div>
 
                 <div class="ministry-card animate-on-scroll">
                     <div class="ministry-icon">🌍</div>
                     <h3>Outreach</h3>
                     <p>Serve our community and the world through local and global mission opportunities.</p>
-                    <a href="#" class="btn btn-outline">Get Involved</a>
+                  
                 </div>
 
                 <div class="ministry-card animate-on-scroll">
                     <div class="ministry-icon">🎓</div>
                     <h3>Youth Ministry</h3>
                     <p>Dynamic programs for middle and high school students. Ages 13-18.</p>
-                    <a href="#" class="btn btn-outline">Learn More</a>
+                  
                 </div>
 
                 <div class="ministry-card animate-on-scroll">
                     <div class="ministry-icon">☕</div>
                     <h3>Welcome Team</h3>
                     <p>Be the first friendly face people see. Help create a welcoming atmosphere.</p>
-                    <a href="#" class="btn btn-outline">Join Team</a>
+                  
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Call to Action -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content animate-on-scroll">
-                <h2>Plan Your First Visit</h2>
-                <p>We'd love to welcome you this Sunday</p>
-                <div class="cta-buttons">
-                    <a href="#" class="btn btn-primary btn-large">Get Directions</a>
-                    <a href="#" class="btn btn-secondary btn-large">Contact Us</a>
-                </div>
-            </div>
-        </div>
-    </section>
+   
 
     <Footer />
+
+    <script>
+        // Wait for events-manager.js to load before using functions
+        function waitForEventsManager() {
+            return new Promise((resolve) => {
+                if (window.getAllServices && window.getAllEvents) {
+                    resolve();
+                } else {
+                    const checkInterval = setInterval(() => {
+                        if (window.getAllServices && window.getAllEvents) {
+                            clearInterval(checkInterval);
+                            resolve();
+                        }
+                    }, 50);
+                    // Timeout after 5 seconds
+                    setTimeout(() => {
+                        clearInterval(checkInterval);
+                        resolve();
+                    }, 5000);
+                }
+            });
+        }
+
+        // Load and display services
+        async function loadServices() {
+            const container = document.getElementById('services-container');
+            if (!container) {
+                console.error('Services container not found!');
+                return;
+            }
+            
+            console.log('Container found:', container);
+            console.log('Container classes:', container.className);
+            console.log('Container current HTML:', container.innerHTML);
+            console.log('Container parent:', container.parentElement);
+            console.log('Container parent classes:', container.parentElement?.className);
+            console.log('Container offsetHeight:', container.offsetHeight);
+            console.log('Container offsetWidth:', container.offsetWidth);
+
+            try {
+                console.log('Waiting for events manager...');
+                await waitForEventsManager();
+                
+                if (!window.getAllServices) {
+                    throw new Error('getAllServices function not available');
+                }
+                
+                console.log('Fetching services...');
+                const services = await window.getAllServices();
+                
+                console.log('Services loaded:', services); // Debug log
+                
+                if (!services || services.length === 0) {
+                    console.log('No services found');
+                    container.innerHTML = '<div class="empty-state"><p>No services scheduled. Check back soon!</p></div>';
+                    return;
+                }
+
+                console.log(`Rendering ${services.length} service(s)...`);
+
+                // Format time display
+                function formatTime(timeString) {
+                    if (!timeString) return '';
+                    try {
+                        // Handle formats like "09:00" or "09:00:00"
+                        const timeParts = timeString.split(':');
+                        if (timeParts.length >= 2) {
+                            const hours = parseInt(timeParts[0], 10);
+                            const minutes = timeParts[1];
+                            const ampm = hours >= 12 ? 'PM' : 'AM';
+                            const displayHours = hours > 12 ? hours - 12 : (hours === 0 ? 12 : hours);
+                            return `${displayHours}:${minutes} ${ampm}`;
+                        }
+                        return timeString;
+                    } catch (e) {
+                        return timeString;
+                    }
+                }
+
+                // Build HTML for each service
+                const htmlParts = services.map(service => {
+                    const timeDisplay = formatTime(service.time);
+                    const featuredClass = service.featured ? 'featured' : '';
+                    const featuredBadge = service.featured ? '<div class="featured-badge">Most Popular</div>' : '';
+                    
+                    let detailsHtml = '<div class="service-details">';
+                    if (service.location) {
+                        detailsHtml += '<p><strong>Location:</strong> ' + service.location + '</p>';
+                    }
+                    if (service.duration) {
+                        detailsHtml += '<p><strong>Duration:</strong> ' + service.duration + '</p>';
+                    }
+                    if (service.childcare) {
+                        detailsHtml += '<p><strong>Childcare:</strong> ' + service.childcare + '</p>';
+                    }
+                    detailsHtml += '</div>';
+                    
+                    return '<div class="service-card animate-on-scroll ' + featuredClass + '">' +
+                        featuredBadge +
+                        '<div class="service-time">' + timeDisplay + '</div>' +
+                        '<h3>' + (service.title || 'Service') + '</h3>' +
+                        '<p>' + (service.description || '') + '</p>' +
+                        detailsHtml +
+                        
+                        '</div>';
+                });
+                
+                const htmlContent = htmlParts.join('');
+                
+                console.log('Generated HTML length:', htmlContent.length);
+                console.log('Generated HTML preview:', htmlContent.substring(0, 200));
+                
+                // Clear container first - remove all children
+                while (container.firstChild) {
+                    container.removeChild(container.firstChild);
+                }
+                
+                // Use insertAdjacentHTML instead of innerHTML
+                container.insertAdjacentHTML('beforeend', htmlContent);
+                
+                // Fix: Manually trigger animation for dynamically inserted elements
+                // The animate-on-scroll class sets opacity: 0, so we need to add 'animated' class
+                const newServiceCards = container.querySelectorAll('.service-card.animate-on-scroll');
+                newServiceCards.forEach(card => {
+                    // Add animated class immediately to make elements visible
+                    card.classList.add('animated');
+                    
+                    // Also observe them for future scroll animations
+                    if (window.intersectionObserver) {
+                        window.intersectionObserver.observe(card);
+                    }
+                });
+                
+                // Also observe any new event items
+                const newEventItems = document.querySelectorAll('#events-container .event-item.animate-on-scroll');
+                newEventItems.forEach(item => {
+                    item.classList.add('animated');
+                    if (window.intersectionObserver) {
+                        window.intersectionObserver.observe(item);
+                    }
+                });
+                
+                // Verify it was set
+                const childCount = container.children.length;
+                console.log('Container children count after update:', childCount);
+                console.log('Service cards found:', newServiceCards.length);
+                
+                if (childCount === 0) {
+                    console.error('WARNING: No children found in container after setting HTML!');
+                    console.error('Container innerHTML:', container.innerHTML);
+                } else {
+                    console.log('First child element:', container.children[0]);
+                    console.log('First child opacity:', window.getComputedStyle(container.children[0]).opacity);
+                }
+                
+                console.log('Services rendered successfully!');
+            } catch (error) {
+                console.error('Error loading services:', error);
+                console.error('Error details:', error.message, error.stack);
+                container.innerHTML = `<div class="empty-state"><p>Error loading services: ${error.message}. Please try again later.</p></div>`;
+            }
+        }
+
+        // Load and display events
+        async function loadEvents() {
+            const container = document.getElementById('events-container');
+            if (!container) return;
+
+            try {
+                await waitForEventsManager();
+                
+                if (!window.getAllEvents) {
+                    throw new Error('getAllEvents function not available');
+                }
+                
+                const events = await window.getAllEvents();
+                
+                if (events.length === 0) {
+                    container.innerHTML = '<div class="empty-state"><p>No upcoming events scheduled. Check back soon!</p></div>';
+                    return;
+                }
+
+                const htmlContent = events.map(event => {
+                    const eventDate = new Date(event.date);
+                    const day = eventDate.getDate().toString().padStart(2, '0');
+                    const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+                    const month = months[eventDate.getMonth()];
+                    const timeDisplay = event.time || 'All Day';
+                    const linkText = event.linkText || 'Learn More';
+                    const linkUrl = event.linkUrl || '#';
+                    
+                    return `
+                        <div class="event-item animate-on-scroll">
+                            <div class="event-date">
+                                <div class="date-day">${day}</div>
+                                <div class="date-month">${month}</div>
+                            </div>
+                            <div class="event-content">
+                                <h3>${event.title}</h3>
+                                <p class="event-time">${timeDisplay}${event.location ? ` - ${event.location}` : ''}</p>
+                                <p>${event.description}</p>
+                              
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+                
+                // Clear container first
+                while (container.firstChild) {
+                    container.removeChild(container.firstChild);
+                }
+                
+                // Insert HTML
+                container.insertAdjacentHTML('beforeend', htmlContent);
+                
+                // Fix: Add animated class to make dynamically inserted elements visible
+                const newEventItems = container.querySelectorAll('.event-item.animate-on-scroll');
+                newEventItems.forEach(item => {
+                    item.classList.add('animated');
+                    if (window.intersectionObserver) {
+                        window.intersectionObserver.observe(item);
+                    }
+                });
+            } catch (error) {
+                console.error('Error loading events:', error);
+                container.innerHTML = '<div class="empty-state"><p>Error loading events. Please try again later.</p></div>';
+            }
+        }
+
+        // Load data when page loads
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                console.log('DOM loaded, initializing services and events...');
+                loadServices();
+                loadEvents();
+            });
+        } else {
+            // DOM already loaded
+            console.log('DOM already loaded, initializing services and events...');
+            loadServices();
+            loadEvents();
+        }
+    </script>
 </BaseLayout>

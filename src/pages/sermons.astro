@@ -4,11 +4,16 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<BaseLayout title="Sermons & Messages | EmmanEzk Church">
+<BaseLayout 
+    title="Sermons & Messages | Emmanuel Church Tiruchengode"
+    description="Watch, listen, and grow with God's Word. Browse sermons and messages from Emmanuel Church Tiruchengode, Tamil Nadu."
+    type="website"
+>
     <Header />
     
+    <main id="main-content">
     <!-- Page Hero -->
-    <section class="page-hero">
+    <section class="page-hero" aria-label="Page header">
         <div class="page-hero-content">
             <h1 class="animate-fade-in" data-translate="sermons.pageTitle">Sermons & Messages</h1>
             <p class="animate-fade-in-delay" data-translate="sermons.pageSubtitle">
@@ -89,6 +94,7 @@ import Footer from '../components/Footer.astro';
             </div>
         </div>
     </section>
+    </main>
 
     <Footer />
 </BaseLayout>

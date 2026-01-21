@@ -9,8 +9,23 @@ export default defineConfig({
   adapter: vercel({
     runtime: 'nodejs20.x'
   }),
+  site: 'https://emmanezk-church.vercel.app',
   build: {
-    assets: 'assets'
+    assets: 'assets',
+    inlineStylesheets: 'auto'
+  },
+  compressHTML: true,
+  vite: {
+    build: {
+      cssMinify: 'lightningcss',
+      minify: 'terser',
+      terserOptions: {
+        compress: {
+          drop_console: true,
+          drop_debugger: true
+        }
+      }
+    }
   }
 });
 

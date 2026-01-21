@@ -2,13 +2,17 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Admin - Sermon Management | EmmanEzk Church">
+<BaseLayout 
+    title="Admin - Sermon Management | Emmanuel Church Tiruchengode"
+    description="Content management system for Emmanuel Church Tiruchengode website"
+    type="website"
+>
     <!-- Navigation -->
-    <header class="header" id="header">
+    <header class="header" id="header" role="banner">
         <div class="container">
             <div class="logo">
                 <span class="logo-icon">✟</span>
-                <span class="logo-text">EmmanEzk</span>
+                <span class="logo-text">Emmanuel Church Tiruchengode</span>
             </div>
             <nav class="nav">
                 <ul class="nav-list">
@@ -20,8 +24,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
     </header>
 
-    <div class="admin-container">
-        <div class="admin-header">
+    <main id="main-content">
+        <div class="admin-container">
+            <div class="admin-header">
             <h1>✟ Content Management</h1>
             <p>Add, edit, and manage sermons and song PDFs for your church website</p>
         </div>
@@ -31,6 +36,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <button class="admin-tab" data-tab="manage">Manage Sermons</button>
             <button class="admin-tab" data-tab="add-song">Add Song PDF</button>
             <button class="admin-tab" data-tab="manage-songs">Manage Song PDFs</button>
+            <button class="admin-tab" data-tab="add-service">Add Service</button>
+            <button class="admin-tab" data-tab="manage-services">Manage Services</button>
+            <button class="admin-tab" data-tab="add-event">Add Event</button>
+            <button class="admin-tab" data-tab="manage-events">Manage Events</button>
         </div>
 
         <!-- Add Sermon Tab -->
@@ -130,7 +139,121 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 </div>
             </div>
         </div>
-    </div>
+
+        <!-- Add Service Tab -->
+        <div class="admin-tab-content" id="tab-add-service">
+            <form id="service-form" class="sermon-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="service-time">Service Time *</label>
+                        <input type="time" id="service-time" name="time" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service-title">Service Title *</label>
+                        <input type="text" id="service-title" name="title" required placeholder="e.g., First Service">
+                    </div>
+                </div>
+                <div class="form-group form-full">
+                    <label for="service-description">Description *</label>
+                    <textarea id="service-description" name="description" rows="4" required placeholder="Brief description of the service..."></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="service-location">Location</label>
+                        <input type="text" id="service-location" name="location" placeholder="e.g., Main Sanctuary">
+                    </div>
+                    <div class="form-group">
+                        <label for="service-duration">Duration</label>
+                        <input type="text" id="service-duration" name="duration" placeholder="e.g., 75 minutes">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="service-childcare">Childcare</label>
+                        <input type="text" id="service-childcare" name="childcare" placeholder="e.g., Available">
+                    </div>
+                    <div class="form-group">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                            <input type="checkbox" id="service-featured" name="featured"> Featured Service
+                        </label>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Add Service</button>
+                    <button type="button" class="btn btn-outline" id="reset-service-form">Reset Form</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Manage Services Tab -->
+        <div class="admin-tab-content" id="tab-manage-services">
+            <div class="sermons-list">
+                <h2 style="margin-bottom: 1.5rem;">All Weekly Services</h2>
+                <div id="services-list-container">
+                    <div class="empty-state">
+                        <p>No services added yet. Add your first service using the "Add Service" tab.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Event Tab -->
+        <div class="admin-tab-content" id="tab-add-event">
+            <form id="event-form" class="sermon-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="event-title">Event Title *</label>
+                        <input type="text" id="event-title" name="title" required placeholder="e.g., Christmas Celebration">
+                    </div>
+                    <div class="form-group">
+                        <label for="event-date">Date *</label>
+                        <input type="date" id="event-date" name="date" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="event-time">Time</label>
+                        <input type="text" id="event-time" name="time" placeholder="e.g., 7:00 PM - Main Sanctuary">
+                    </div>
+                    <div class="form-group">
+                        <label for="event-location">Location</label>
+                        <input type="text" id="event-location" name="location" placeholder="e.g., Main Sanctuary">
+                    </div>
+                </div>
+                <div class="form-group form-full">
+                    <label for="event-description">Description *</label>
+                    <textarea id="event-description" name="description" rows="4" required placeholder="Brief description of the event..."></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="event-link-text">Link Text</label>
+                        <input type="text" id="event-link-text" name="linkText" placeholder="e.g., Learn More">
+                    </div>
+                    <div class="form-group">
+                        <label for="event-link-url">Link URL</label>
+                        <input type="url" id="event-link-url" name="linkUrl" placeholder="https://...">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Add Event</button>
+                    <button type="button" class="btn btn-outline" id="reset-event-form">Reset Form</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Manage Events Tab -->
+        <div class="admin-tab-content" id="tab-manage-events">
+            <div class="sermons-list">
+                <h2 style="margin-bottom: 1.5rem;">All Upcoming Events</h2>
+                <div id="events-list-container">
+                    <div class="empty-state">
+                        <p>No events added yet. Add your first event using the "Add Event" tab.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
 
     <style>
         .admin-container {

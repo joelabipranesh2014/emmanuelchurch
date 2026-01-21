@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://emmanezk-church.vercel.app/sitemap.xml
+
+# Disallow admin pages
+Disallow: /admin
+Disallow: /api/
+
