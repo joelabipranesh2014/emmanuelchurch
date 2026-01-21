@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import vercel from '@astrojs/vercel/serverless';
+import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,7 +17,7 @@ export default defineConfig({
   compressHTML: true,
   vite: {
     build: {
-      cssMinify: 'lightningcss',
+      cssMinify: 'esbuild', // Use esbuild (default) instead of lightningcss
       minify: 'terser',
       terserOptions: {
         compress: {
