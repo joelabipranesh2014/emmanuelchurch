@@ -6,7 +6,9 @@ export default defineConfig({
   // Use 'server' mode for Vercel deployment
   // This enables API routes while still pre-rendering static pages
   output: 'server',
-  adapter: vercel(),
+  adapter: vercel({
+    runtime: 'nodejs20.x'
+  }),
   build: {
     assets: 'assets'
   }
