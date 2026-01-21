@@ -1,0 +1,217 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Prayer Request | EmmanEzk Church">
+    <Header />
+    
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1 class="animate-fade-in" data-translate="prayer.pageTitle">Prayer Request</h1>
+            <p class="animate-fade-in-delay" data-translate="prayer.pageSubtitle">
+                Share your prayer request with us. We're here to pray for you.
+            </p>
+        </div>
+    </section>
+
+    <!-- Prayer Request Form Section -->
+    <section class="prayer-request-section">
+        <div class="container">
+            <div class="prayer-form-container animate-on-scroll">
+                <form id="prayer-form" class="prayer-form-page">
+                    <div class="form-group">
+                        <label for="prayer-name" data-translate="prayer.name">Name *</label>
+                        <input type="text" id="prayer-name" name="name" required placeholder="" data-translate-placeholder="prayer.namePlaceholder">
+                    </div>
+                    <div class="form-group">
+                        <label for="prayer-mobile" data-translate="prayer.mobile">Mobile Number *</label>
+                        <input type="tel" id="prayer-mobile" name="mobile" required placeholder="" data-translate-placeholder="prayer.mobilePlaceholder">
+                    </div>
+                    <div class="form-group">
+                        <label for="prayer-location" data-translate="prayer.location">Location *</label>
+                        <input type="text" id="prayer-location" name="location" required placeholder="" data-translate-placeholder="prayer.locationPlaceholder">
+                    </div>
+                    <div class="form-group">
+                        <label for="prayer-request" data-translate="prayer.request">Prayer Request *</label>
+                        <textarea id="prayer-request" name="request" rows="5" required placeholder="" data-translate-placeholder="prayer.requestPlaceholder"></textarea>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="prayer-newcomer" name="newcomer">
+                            <span data-translate="prayer.newcomer">Are you a newcomer?</span>
+                        </label>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-large" data-translate="prayer.submit">Submit Prayer Request</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</BaseLayout>
+
+<style>
+    .prayer-request-section {
+        padding: 4rem 0;
+        background: var(--bg-light);
+    }
+
+    .prayer-form-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: var(--bg-white);
+        padding: 3rem;
+        border-radius: 15px;
+        box-shadow: var(--shadow-lg);
+    }
+
+    .prayer-form-page {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .form-group label {
+        font-weight: 600;
+        color: var(--text-dark);
+        font-size: 1rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 0.75rem;
+        border: 2px solid var(--bg-light);
+        border-radius: 8px;
+        font-size: 1rem;
+        font-family: inherit;
+        transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(26, 36, 33, 0.3);
+        background: var(--bg-dark);
+        color: var(--text-dark);
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        background: var(--bg-dark);
+        color: var(--text-dark);
+    }
+
+    .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+    .checkbox-group {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .checkbox-label {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        cursor: pointer;
+        font-weight: 500;
+        color: var(--text-dark);
+    }
+
+    .checkbox-label input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        accent-color: var(--primary-color);
+    }
+
+    .form-actions {
+        margin-top: 1rem;
+    }
+
+    .btn-large {
+        width: 100%;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+    }
+
+    @media (max-width: 768px) {
+        .prayer-form-container {
+            padding: 2rem 1.5rem;
+            margin: 0 1rem;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const prayerForm = document.getElementById('prayer-form');
+        const whatsappNumber = '9150185746';
+        
+        if (prayerForm) {
+            prayerForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Get form values
+                const formData = new FormData(prayerForm);
+                const name = formData.get('name') || '';
+                const mobile = formData.get('mobile') || '';
+                const location = formData.get('location') || '';
+                const request = formData.get('request') || '';
+                
+                // Check checkbox directly
+                const newcomerCheckbox = document.getElementById('prayer-newcomer');
+                const isNewcomer = newcomerCheckbox && newcomerCheckbox.checked;
+                
+                // Validate form
+                if (!name || !mobile || !location || !request) {
+                    alert('Please fill in all required fields');
+                    return;
+                }
+                
+                // Format message for WhatsApp
+                let message = `*Prayer Request*\n\n` +
+                              `*Name:* ${name}\n` +
+                              `*Mobile:* ${mobile}\n` +
+                              `*Location:* ${location}\n\n` +
+                              `*Prayer Request:*\n${request}`;
+                
+                // Add newcomer message if checked
+                if (isNewcomer) {
+                    message += `\n\n*Newcomer:* Yes`;
+                }
+                
+                // Encode message for URL
+                const encodedMessage = encodeURIComponent(message);
+                
+                // Create WhatsApp URL
+                const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+                
+                // Open WhatsApp
+                window.open(whatsappURL, '_blank');
+                
+                // Reset form
+                prayerForm.reset();
+                
+                // Show success message
+                alert('Thank you for your prayer request! Opening WhatsApp...');
+            });
+        }
+    });
+</script>
+

@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Sermons & Messages | EmmanEzk Church">
+    <Header />
+    
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1 class="animate-fade-in" data-translate="sermons.pageTitle">Sermons & Messages</h1>
+            <p class="animate-fade-in-delay" data-translate="sermons.pageSubtitle">
+                Watch, listen, and grow with God's Word
+            </p>
+        </div>
+    </section>
+
+    <!-- Featured Sermon -->
+    <section class="featured-sermon-section">
+        <div class="container">
+            <div class="featured-sermon animate-on-scroll" id="featured-sermon-container">
+                <!-- Dynamic content will be loaded here -->
+                <div class="featured-sermon-content">
+                    <div class="featured-badge">Latest Message</div>
+                    <h2>Loading...</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Sermons -->
+    <section class="sermons-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title" data-translate="sermons.recentTitle">Recent Messages</h2>
+                <p class="section-subtitle" data-translate="sermons.recentSubtitle">Catch up on recent teachings</p>
+            </div>
+            
+            <div class="sermons-grid" id="sermons-grid-container">
+                <!-- Dynamic content will be loaded here -->
+                <div class="empty-state" style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+                    <p>Loading sermons...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Podcast Section -->
+    <section class="podcast-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Listen on the Go</h2>
+                <p class="section-subtitle">Subscribe to our podcast and never miss a message</p>
+            </div>
+            
+            <div class="podcast-platforms animate-on-scroll">
+                <a href="#" class="podcast-platform">
+                    <div class="platform-icon">🎵</div>
+                    <span>Apple Podcasts</span>
+                </a>
+                <a href="#" class="podcast-platform">
+                    <div class="platform-icon">🎵</div>
+                    <span>Spotify</span>
+                </a>
+                <a href="#" class="podcast-platform">
+                    <div class="platform-icon">🎵</div>
+                    <span>Google Podcasts</span>
+                </a>
+                <a href="#" class="podcast-platform">
+                    <div class="platform-icon">🎵</div>
+                    <span>YouTube</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content animate-on-scroll">
+                <h2>Join Us This Sunday</h2>
+                <p>Experience worship and teaching in person</p>
+                <div class="cta-buttons">
+                    <a href="/events" class="btn btn-primary btn-large">Plan Your Visit</a>
+                    <a href="/" class="btn btn-secondary btn-large">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</BaseLayout>

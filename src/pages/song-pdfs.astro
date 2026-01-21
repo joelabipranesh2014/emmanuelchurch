@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Song PDFs | EmmanEzk Church">
+    <Header />
+    
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1 class="animate-fade-in">Song PDFs</h1>
+            <p class="animate-fade-in-delay">
+                Download song PDFs and sheet music
+            </p>
+        </div>
+    </section>
+
+    <!-- Song PDFs Section -->
+    <section class="sermons-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Available Song PDFs</h2>
+                <p class="section-subtitle">Click on any song to download the PDF</p>
+            </div>
+            
+            <div class="songs-grid" id="songs-grid-container">
+                <!-- Dynamic content will be loaded here -->
+                <div class="empty-state" style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+                    <p>Loading song PDFs...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</BaseLayout>
+
+<style>
+    .songs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .song-card {
+        background: var(--bg-white);
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: var(--shadow-md);
+        transition: all 0.3s ease;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .song-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .song-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .song-card h3 {
+        color: var(--text-dark);
+        margin-bottom: 1rem;
+    }
+
+    .song-card .btn {
+        margin-top: 1rem;
+    }
+</style>
+
+<script>
+    // Load and display song PDFs
+    async function loadSongPDFs() {
+        const container = document.getElementById('songs-grid-container');
+        if (!container) return;
+
+        try {
+            const response = await fetch('/api/song-pdfs');
+            if (!response.ok) {
+                throw new Error('Failed to fetch song PDFs');
+            }
+            const songs = await response.json();
+
+            if (!songs || songs.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state" style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+                        <p>No song PDFs available yet. Check back soon!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = songs.map(song => `
+                <div class="song-card animate-on-scroll">
+                    <div class="song-icon">🎵</div>
+                    <h3>${song.title}</h3>
+                    <a href="${song.pdfUrl}" target="_blank" class="btn btn-primary" download>
+                        Download PDF
+                    </a>
+                </div>
+            `).join('');
+
+            // Re-observe animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+        } catch (error) {
+            console.error('Error loading song PDFs:', error);
+            container.innerHTML = `
+                <div class="empty-state" style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+                    <p>Error loading song PDFs. Please refresh the page.</p>
+                </div>
+            `;
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadSongPDFs);
+</script>
+

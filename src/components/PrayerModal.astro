@@ -1,0 +1,35 @@
+---
+// Prayer Request Modal Component
+---
+
+<div id="prayer-modal" class="prayer-modal">
+    <div class="prayer-modal-content">
+        <div class="prayer-modal-header">
+            <h2 data-translate="prayer.modalTitle">Prayer Request</h2>
+            <span class="prayer-modal-close">&times;</span>
+        </div>
+        <form id="prayer-form" class="prayer-form">
+            <div class="form-group">
+                <label for="prayer-name" data-translate="prayer.name">Name</label>
+                <input type="text" id="prayer-name" name="name" required placeholder="" data-translate-placeholder="prayer.namePlaceholder">
+            </div>
+            <div class="form-group">
+                <label for="prayer-mobile" data-translate="prayer.mobile">Mobile Number</label>
+                <input type="tel" id="prayer-mobile" name="mobile" required placeholder="" data-translate-placeholder="prayer.mobilePlaceholder">
+            </div>
+            <div class="form-group">
+                <label for="prayer-location" data-translate="prayer.location">Location</label>
+                <input type="text" id="prayer-location" name="location" required placeholder="" data-translate-placeholder="prayer.locationPlaceholder">
+            </div>
+            <div class="form-group">
+                <label for="prayer-request" data-translate="prayer.request">Prayer Request</label>
+                <textarea id="prayer-request" name="request" rows="5" required placeholder="" data-translate-placeholder="prayer.requestPlaceholder"></textarea>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn btn-outline prayer-modal-close-btn" data-translate="prayer.cancel">Cancel</button>
+                <button type="submit" class="btn btn-primary" data-translate="prayer.submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+

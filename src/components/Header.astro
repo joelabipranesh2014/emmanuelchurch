@@ -1,0 +1,48 @@
+---
+// Header component with navigation
+const currentPath = Astro.url.pathname;
+---
+
+<header class="header" id="header">
+    <div class="container">
+        <div class="logo">
+            <span class="logo-icon">✟</span>
+            <span class="logo-text">Emmanuel Prayer Fellowship Church</span>
+        </div>
+        <nav class="nav">
+            <ul class="nav-list">
+                <li>
+                    <a href="/" class={`nav-link ${currentPath === '/' ? 'active' : ''}`} data-translate="nav.home">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="/about" class={`nav-link ${currentPath === '/about' ? 'active' : ''}`} data-translate="nav.about">
+                        About
+                    </a>
+                </li>
+                <li>
+                    <a href="/sermons" class={`nav-link ${currentPath === '/sermons' ? 'active' : ''}`} data-translate="nav.sermons">
+                        Sermons
+                    </a>
+                </li>
+                <li>
+                    <a href="/events" class={`nav-link ${currentPath === '/events' ? 'active' : ''}`} data-translate="nav.events">
+                        Events
+                    </a>
+                </li>
+                <li>
+                    <a href="/prayer-request" class={`nav-link ${currentPath === '/prayer-request' ? 'active' : ''}`} data-translate="nav.prayerRequest">
+                        Prayer Request
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+

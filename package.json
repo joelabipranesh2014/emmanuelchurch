@@ -1,0 +1,17 @@
+{
+  "name": "emmanezk-church",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.16.11",
+    "firebase": "^12.8.0",
+    "firebase-admin": "^13.6.0"
+  }
+}

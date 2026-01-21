@@ -1,0 +1,215 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Events & Services | EmmanEzk Church">
+    <Header />
+    
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1 class="animate-fade-in" data-translate="events.pageTitle">Events & Services</h1>
+            <p class="animate-fade-in-delay" data-translate="events.pageSubtitle">
+                Join us for worship, community, and growth
+            </p>
+        </div>
+    </section>
+
+    <!-- Weekly Services -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Weekly Services</h2>
+                <p class="section-subtitle">Join us every Sunday for worship and teaching</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card animate-on-scroll">
+                    <div class="service-time">9:00 AM</div>
+                    <h3>First Service</h3>
+                    <p>Start your week with worship and God's Word. A powerful time of praise, prayer, and teaching.</p>
+                    <div class="service-details">
+                        <p><strong>Location:</strong> Main Sanctuary</p>
+                        <p><strong>Duration:</strong> 75 minutes</p>
+                        <p><strong>Childcare:</strong> Available</p>
+                    </div>
+                    <a href="#" class="btn btn-primary">Plan Your Visit</a>
+                </div>
+
+                <div class="service-card animate-on-scroll featured">
+                    <div class="featured-badge">Most Popular</div>
+                    <div class="service-time">11:00 AM</div>
+                    <h3>Second Service</h3>
+                    <p>Our most attended service featuring full worship band, inspiring message, and vibrant community.</p>
+                    <div class="service-details">
+                        <p><strong>Location:</strong> Main Sanctuary</p>
+                        <p><strong>Duration:</strong> 75 minutes</p>
+                        <p><strong>Childcare:</strong> Available</p>
+                    </div>
+                    <a href="#" class="btn btn-primary">Plan Your Visit</a>
+                </div>
+
+                <div class="service-card animate-on-scroll">
+                    <div class="service-time">6:00 PM</div>
+                    <h3>Evening Service</h3>
+                    <p>A more intimate gathering with extended worship and deeper teaching. Perfect for those seeking a quieter, reflective experience.</p>
+                    <div class="service-details">
+                        <p><strong>Location:</strong> Main Sanctuary</p>
+                        <p><strong>Duration:</strong> 90 minutes</p>
+                        <p><strong>Childcare:</strong> Available</p>
+                    </div>
+                    <a href="#" class="btn btn-primary">Plan Your Visit</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events -->
+    <section class="events-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Upcoming Events</h2>
+                <p class="section-subtitle">Mark your calendar for these special gatherings</p>
+            </div>
+            
+            <div class="events-timeline">
+                <div class="event-item animate-on-scroll">
+                    <div class="event-date">
+                        <div class="date-day">15</div>
+                        <div class="date-month">DEC</div>
+                    </div>
+                    <div class="event-content">
+                        <h3>Christmas Celebration</h3>
+                        <p class="event-time">7:00 PM - Main Sanctuary</p>
+                        <p>Join us for a special Christmas service featuring carols, candlelight, and a message of hope. Bring your family and friends!</p>
+                        <a href="#" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="event-item animate-on-scroll">
+                    <div class="event-date">
+                        <div class="date-day">22</div>
+                        <div class="date-month">DEC</div>
+                    </div>
+                    <div class="event-content">
+                        <h3>New Year's Eve Service</h3>
+                        <p class="event-time">10:00 PM - Main Sanctuary</p>
+                        <p>Ring in the new year with worship, prayer, and communion. We'll reflect on God's faithfulness and look forward to what He has in store.</p>
+                        <a href="#" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="event-item animate-on-scroll">
+                    <div class="event-date">
+                        <div class="date-day">05</div>
+                        <div class="date-month">JAN</div>
+                    </div>
+                    <div class="event-content">
+                        <h3>Vision Sunday</h3>
+                        <p class="event-time">All Services</p>
+                        <p>Hear about what God is doing in our church and where we're heading in the new year. This is a can't-miss Sunday!</p>
+                        <a href="#" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="event-item animate-on-scroll">
+                    <div class="event-date">
+                        <div class="date-day">12</div>
+                        <div class="date-month">JAN</div>
+                    </div>
+                    <div class="event-content">
+                        <h3>Baptism Sunday</h3>
+                        <p class="event-time">All Services</p>
+                        <p>Celebrate with those taking the next step in their faith journey through baptism. If you're ready to be baptized, sign up today!</p>
+                        <a href="#" class="btn btn-outline">Sign Up</a>
+                    </div>
+                </div>
+
+                <div class="event-item animate-on-scroll">
+                    <div class="event-date">
+                        <div class="date-day">20</div>
+                        <div class="date-month">JAN</div>
+                    </div>
+                    <div class="event-content">
+                        <h3>Community Groups Launch</h3>
+                        <p class="event-time">6:30 PM - Various Locations</p>
+                        <p>New semester of community groups begins! Find your group and start building deeper relationships with other believers.</p>
+                        <a href="#" class="btn btn-outline">Find a Group</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ministries Section -->
+    <section class="ministries-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Get Involved</h2>
+                <p class="section-subtitle">Find your place to serve and grow</p>
+            </div>
+            
+            <div class="ministries-grid">
+                <div class="ministry-card animate-on-scroll">
+                    <div class="ministry-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Children's Ministry</h3>
+                    <p>Nurturing the next generation in faith, fun, and friendship. Ages 0-12.</p>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <div class="ministry-card animate-on-scroll">
+                    <div class="ministry-icon">🎸</div>
+                    <h3>Worship Team</h3>
+                    <p>Use your musical gifts to lead others in worship. Auditions required.</p>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <div class="ministry-card animate-on-scroll">
+                    <div class="ministry-icon">🤝</div>
+                    <h3>Community Groups</h3>
+                    <p>Small groups meeting throughout the week for Bible study, prayer, and fellowship.</p>
+                    <a href="#" class="btn btn-outline">Find a Group</a>
+                </div>
+
+                <div class="ministry-card animate-on-scroll">
+                    <div class="ministry-icon">🌍</div>
+                    <h3>Outreach</h3>
+                    <p>Serve our community and the world through local and global mission opportunities.</p>
+                    <a href="#" class="btn btn-outline">Get Involved</a>
+                </div>
+
+                <div class="ministry-card animate-on-scroll">
+                    <div class="ministry-icon">🎓</div>
+                    <h3>Youth Ministry</h3>
+                    <p>Dynamic programs for middle and high school students. Ages 13-18.</p>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+
+                <div class="ministry-card animate-on-scroll">
+                    <div class="ministry-icon">☕</div>
+                    <h3>Welcome Team</h3>
+                    <p>Be the first friendly face people see. Help create a welcoming atmosphere.</p>
+                    <a href="#" class="btn btn-outline">Join Team</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content animate-on-scroll">
+                <h2>Plan Your First Visit</h2>
+                <p>We'd love to welcome you this Sunday</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary btn-large">Get Directions</a>
+                    <a href="#" class="btn btn-secondary btn-large">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</BaseLayout>
