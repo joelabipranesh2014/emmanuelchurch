@@ -10,9 +10,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/vercel": "^8.0.4",
+    "@astrojs/vercel": "^9.0.4",
     "astro": "^5.16.11",
     "firebase": "^12.8.0",
     "firebase-admin": "^13.6.0"
+  },
+  "overrides": {
+    "path-to-regexp": "^6.2.3"
   }
 }
