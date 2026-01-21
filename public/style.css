@@ -8,22 +8,22 @@
 }
 
 :root {
-    --primary-color: #1A2421;
+    --primary-color: #1a9988;
     --primary-color-light:#FAF9F6;
-    --secondary-color: #2A3A35;
-    --accent-color: #3A4A45;
+    --secondary-color: #158a7a;
+    --accent-color: #0f6b5e;
     --text-dark: #1F2937;
     --text-light: #6B7280;
     --bg-light: #FAF9F6;
     --bg-white: #FFFFFF;
     --bg-dark: #FAF9F6;
-    --gradient-1: linear-gradient(135deg, #1A2421 0%, #2A3A35 100%);
-    --gradient-2: linear-gradient(135deg, #2A3A35 0%, #3A4A45 100%);
-    --gradient-3: linear-gradient(135deg, #1A2421 0%, #3A4A45 100%);
-    --shadow-sm: 0 2px 4px rgba(26, 36, 33, 0.08);
-    --shadow-md: 0 4px 6px rgba(26, 36, 33, 0.12);
-    --shadow-lg: 0 10px 25px rgba(26, 36, 33, 0.15);
-    --shadow-xl: 0 20px 40px rgba(26, 36, 33, 0.2);
+    --gradient-1: linear-gradient(135deg, #1a9988 0%, #158a7a 100%);
+    --gradient-2: linear-gradient(135deg, #158a7a 0%, #0f6b5e 100%);
+    --gradient-3: linear-gradient(135deg, #1a9988 0%, #0f6b5e 100%);
+    --shadow-sm: 0 2px 4px rgba(26, 153, 136, 0.08);
+    --shadow-md: 0 4px 6px rgba(26, 153, 136, 0.12);
+    --shadow-lg: 0 10px 25px rgba(26, 153, 136, 0.15);
+    --shadow-xl: 0 20px 40px rgba(26, 153, 136, 0.2);
 }
 
 html {
@@ -86,7 +86,7 @@ p {
     box-shadow: var(--shadow-sm);
     z-index: 1000;
     transition: all 0.3s ease;
-    border-bottom: 1px solid rgba(26, 36, 33, 0.08);
+    border-bottom: 1px solid rgba(26, 153, 136, 0.08);
 }
 
 .header.scrolled {
@@ -411,7 +411,7 @@ p {
 }
 
 .btn-secondary {
-    background: rgba(26, 36, 33, 0.1);
+    background: rgba(26, 153, 136, 0.1);
     color: var(--primary-color-light);
     border: 2px solid var(--primary-color-light);
     backdrop-filter: blur(10px);
@@ -843,7 +843,7 @@ section {
 .location-timings {
     margin-top: 1.5rem;
     padding-top: 1.5rem;
-    border-top: 1px solid rgba(26, 36, 33, 0.4);
+    border-top: 1px solid rgba(26, 153, 136, 0.4);
 }
 
 .location-timings p {
@@ -1391,7 +1391,7 @@ section {
     background: #FAF9F6;
     color: var(--text-dark);
     padding: 4rem 0 2rem;
-    border-top: 1px solid rgba(26, 36, 33, 0.1);
+    border-top: 1px solid rgba(26, 153, 136, 0.1);
 }
 
 .footer-content {
@@ -1432,7 +1432,7 @@ section {
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid rgba(26, 36, 33, 0.4);
+    border-top: 1px solid rgba(26, 153, 136, 0.4);
 }
 
 .footer-bottom p {
@@ -1559,7 +1559,7 @@ section {
     outline: none;
     border-color: var(--primary-color);
     background: var(--bg-white);
-    box-shadow: 0 0 0 3px rgba(26, 36, 33, 0.3);
+    box-shadow: 0 0 0 3px rgba(26, 153, 136, 0.3);
 }
 
 .form-group textarea {
