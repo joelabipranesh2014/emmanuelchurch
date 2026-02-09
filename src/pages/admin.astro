@@ -25,10 +25,36 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </header>
 
     <main id="main-content">
+        <!-- Login Modal -->
+        <div id="login-modal" class="login-modal">
+            <div class="login-modal-content">
+                <div class="login-header">
+                    <span class="logo-icon">✟</span>
+                    <h2>Admin Login</h2>
+                    <p>Please enter your credentials to access the admin panel</p>
+                </div>
+                <form id="login-form" class="login-form">
+                    <div class="form-group">
+                        <label for="login-email">Email Address</label>
+                        <input type="email" id="login-email" name="email" required placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" name="password" required placeholder="Enter your password">
+                    </div>
+                    <div id="login-error" class="login-error" style="display: none;"></div>
+                    <button type="submit" class="btn btn-primary btn-full">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Admin Content (hidden until authenticated) -->
+        <div id="admin-content" class="admin-content" style="display: none;">
         <div class="admin-container">
             <div class="admin-header">
             <h1>✟ Content Management</h1>
             <p>Add, edit, and manage sermons and song PDFs for your church website</p>
+            <button id="logout-btn" class="logout-btn">Logout</button>
         </div>
 
         <div class="admin-tabs">
@@ -253,6 +279,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
         </div>
         </div>
+        </div>
     </main>
 
     <style>
@@ -413,6 +440,250 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         input[type="file"]::file-selector-button:hover {
             background: var(--secondary-color);
             transform: translateY(-1px);
+        }
+        /* Login Modal Styles */
+        .login-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            backdrop-filter: blur(5px);
+        }
+        .login-modal-content {
+            background: var(--bg-white);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-lg);
+            width: 90%;
+            max-width: 450px;
+            animation: slideIn 0.3s ease-out;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .login-header .logo-icon {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        .login-header h2 {
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+        .login-header p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .login-form .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .login-form label {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+        }
+        .login-form input {
+            padding: 0.875rem;
+            border: 2px solid var(--bg-light);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        .login-form input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(26, 36, 33, 0.1);
+        }
+        .btn-full {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        .login-error {
+            background: #fee;
+            color: #c33;
+            padding: 0.875rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            text-align: center;
+            border: 1px solid #fcc;
+        }
+        .logout-btn {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        .logout-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        .admin-header {
+            position: relative;
+        }
+    </style>
+
+    <script>
+        // Admin Authentication
+        (function() {
+            const ADMIN_EMAIL = 'emmanuelchurchtgode@gmail.com';
+            const ADMIN_PASSWORD = 'Jesus@1957';
+            const AUTH_KEY = 'admin_authenticated';
+            const SESSION_TIMEOUT = 8 * 60 * 60 * 1000; // 8 hours
+
+            // Check if user is already authenticated
+            function checkAuth() {
+                const authData = localStorage.getItem(AUTH_KEY);
+                if (!authData) return false;
+
+                try {
+                    const { timestamp } = JSON.parse(authData);
+                    const now = Date.now();
+                    
+                    // Check if session expired
+                    if (now - timestamp > SESSION_TIMEOUT) {
+                        localStorage.removeItem(AUTH_KEY);
+                        return false;
+                    }
+                    return true;
+                } catch (e) {
+                    localStorage.removeItem(AUTH_KEY);
+                    return false;
+                }
+            }
+
+            // Set authentication
+            function setAuth() {
+                localStorage.setItem(AUTH_KEY, JSON.stringify({
+                    timestamp: Date.now()
+                }));
+            }
+
+            // Remove authentication
+            function removeAuth() {
+                localStorage.removeItem(AUTH_KEY);
+            }
+
+            // Show login modal
+            function showLoginModal() {
+                const modal = document.getElementById('login-modal');
+                const adminContent = document.getElementById('admin-content');
+                if (modal) modal.style.display = 'flex';
+                if (adminContent) adminContent.style.display = 'none';
+            }
+
+            // Show admin content
+            function showAdminContent() {
+                const modal = document.getElementById('login-modal');
+                const adminContent = document.getElementById('admin-content');
+                if (modal) modal.style.display = 'none';
+                if (adminContent) adminContent.style.display = 'block';
+            }
+
+            // Initialize on page load
+            document.addEventListener('DOMContentLoaded', () => {
+                const loginForm = document.getElementById('login-form');
+                const logoutBtn = document.getElementById('logout-btn');
+                const errorDiv = document.getElementById('login-error');
+
+                // Check existing authentication
+                if (checkAuth()) {
+                    showAdminContent();
+                } else {
+                    showLoginModal();
+                }
+
+                // Handle login form submission
+                if (loginForm) {
+                    loginForm.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        
+                        const email = document.getElementById('login-email').value.trim();
+                        const password = document.getElementById('login-password').value;
+
+                        // Hide error initially
+                        if (errorDiv) {
+                            errorDiv.style.display = 'none';
+                        }
+
+                        // Validate credentials
+                        if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+                            setAuth();
+                            showAdminContent();
+                            // Clear form
+                            loginForm.reset();
+                        } else {
+                            // Show error
+                            if (errorDiv) {
+                                errorDiv.textContent = 'Invalid email or password. Please try again.';
+                                errorDiv.style.display = 'block';
+                            }
+                            // Shake animation
+                            const modalContent = document.querySelector('.login-modal-content');
+                            if (modalContent) {
+                                modalContent.style.animation = 'shake 0.5s';
+                                setTimeout(() => {
+                                    modalContent.style.animation = '';
+                                }, 500);
+                            }
+                        }
+                    });
+                }
+
+                // Handle logout
+                if (logoutBtn) {
+                    logoutBtn.addEventListener('click', () => {
+                        if (confirm('Are you sure you want to logout?')) {
+                            removeAuth();
+                            showLoginModal();
+                        }
+                    });
+                }
+            });
+        })();
+    </script>
+
+    <style>
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
         }
     </style>
 </BaseLayout>
